@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<title>Крутяк Вкусное сопровождение любых мероприятий</title>
+
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="./images/icons/favicon.svg" />
+
+		<link
+			rel="preload"
+			href="./fonts/Montserrat-Medium.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin />
+
+		<link
+			rel="preload"
+			href="./fonts/Montserrat-SemiBold.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin />
+
+		<link
+			rel="preload"
+			href="./fonts/Montserrat-Bold.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin />
+
+		<link
+			rel="preload"
+			href="./fonts/Montserrat-ExtraBold.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin />
+
+		<link rel="stylesheet" href="./css/main.css" />
+	</head>
+	<body>
+		<div class="app">
+			@include('./html/header.html')
+			<main class="main">
+				<!--  -->
+				@include('./html/hero.html')
+				<!--  -->
+			</main>
+			@include('./html/footer.html')
+		</div>
+
+		<script type="module" src="./js/main.js"></script>
+	</body>
+</html>

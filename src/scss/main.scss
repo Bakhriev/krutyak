@@ -22,3 +22,48 @@
 // Sections
 @use "./sections/hero";
 // pages
+
+.text-container-wrapper {
+	padding-top: 40px;
+	padding-bottom: 70px;
+
+	@media screen and (max-width: 1025px) {
+		display: none;
+	}
+}
+
+.text-container {
+	padding: 30px 40px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 15px;
+
+	border-radius: 15px;
+	background-color: #fff;
+	box-shadow: 0 4px 20px 0 rgba(255, 157, 151, 0.1);
+
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+		padding-left: 20px;
+
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 140%;
+		letter-spacing: -0.01em;
+		color: #8c6f5e;
+
+		border-left: 2px dashed #ff9d97;
+
+		span {
+			&:first-child {
+				font-weight: 800;
+				font-size: 41px;
+				line-height: 132%;
+				letter-spacing: -0.01em;
+				color: #3d1701;
+			}
+		}
+	}
+}

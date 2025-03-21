@@ -1,0 +1,218 @@
+@use "../config/vars";
+@use "../utils/mixins";
+
+.hero {
+	padding-top: 186px;
+	padding-bottom: 40px;
+
+	@media screen and (max-width: vars.$s992) {
+		padding-top: 140px;
+	}
+
+	@media screen and (max-width: vars.$s768) {
+		padding-top: 92px;
+	}
+
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 40px;
+
+		@media screen and (max-width: vars.$s992) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__square-images {
+		max-width: 630px;
+
+		@media screen and (max-width: vars.$s992) {
+			margin: 0 auto;
+		}
+	}
+
+	&__left {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	&__title {
+		font-weight: 800;
+		font-size: 41px;
+		line-height: 132%;
+		letter-spacing: -0.01em;
+		color: #3d1701;
+
+		@media screen and (max-width: vars.$s992) {
+			text-align: center;
+			font-size: 27px;
+		}
+	}
+
+	&__text {
+		font-weight: 600;
+		font-size: 17px;
+		line-height: 157%;
+		letter-spacing: -0.01em;
+		color: #8c6f5e;
+
+		@media screen and (max-width: vars.$s992) {
+			font-size: 14px;
+			text-align: center;
+		}
+	}
+
+	&__features {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+
+		padding-top: 30px;
+
+		@media screen and (max-width: vars.$s992) {
+			padding-top: 25px;
+		}
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+
+		padding-top: 48px;
+
+		@media screen and (max-width: 1200px) {
+			flex-wrap: wrap;
+		}
+
+		@media screen and (max-width: vars.$s992) {
+			padding-top: 30px;
+		}
+	}
+
+	&__btn {
+		flex-shrink: 0;
+		max-width: 344px;
+		width: 100%;
+
+		@media screen and (max-width: 1200px) {
+			max-width: 100%;
+		}
+	}
+
+	&__subtext {
+		font-weight: 500;
+		font-size: 10px;
+		line-height: 147%;
+		letter-spacing: -0.01em;
+		color: #8c6f5e;
+
+		@media screen and (max-width: vars.$s992) {
+			text-align: center;
+		}
+	}
+
+	&__right {
+	}
+}
+
+.feature {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	@media screen and (max-width: vars.$s992) {
+		flex-direction: column;
+	}
+
+	&__icon {
+		flex-shrink: 0;
+
+		@media screen and (max-width: vars.$s480) {
+			width: 30px;
+			height: 30px;
+		}
+	}
+
+	&__text {
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 140%;
+		letter-spacing: -0.01em;
+		color: #3d1701;
+
+		@media screen and (max-width: vars.$s992) {
+			font-size: 12px;
+			text-align: center;
+		}
+	}
+}
+
+.btn {
+	@include mixins.btn-reset;
+
+	padding: 25px 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+
+	font-weight: 600;
+	line-height: 132%;
+	letter-spacing: -0.01em;
+	color: var(--white);
+
+	border-radius: 73px;
+	background-color: #44b5b1;
+	transition:
+		background-color 150ms ease-in-out,
+		scale 50ms ease-in-out;
+
+	@include mixins.hover {
+		background-color: #23a39e;
+	}
+
+	&:focus-visible {
+		background-color: #23a39e;
+	}
+
+	&:active {
+		scale: 0.99;
+	}
+
+	@media screen and (max-width: vars.$s992) {
+		padding: 20px 15px;
+		font-size: 14px;
+	}
+}
+
+.square-images {
+	position: relative;
+
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 15px;
+
+	&__icon {
+		@include mixins.center;
+		position: absolute;
+		z-index: 1;
+	}
+
+	&__col {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	&__row {
+		display: flex;
+		gap: 15px;
+	}
+
+	&__img {
+		border-radius: 15px;
+	}
+}

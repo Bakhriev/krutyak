@@ -22,15 +22,17 @@ const dev = series(
 	del,
 	html,
 	styles,
-	scripts,
-	media,
-	images,
-	icons,
-	sprite,
-	vendors,
-	fonts,
-	watcher,
-	serve
+	parallel(
+		scripts,
+		media,
+		images,
+		icons,
+		sprite,
+		vendors,
+		fonts,
+		watcher,
+		serve
+	)
 );
 
 const build = series(

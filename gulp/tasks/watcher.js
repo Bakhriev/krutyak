@@ -13,7 +13,7 @@ import {
 	fonts,
 } from "./index.js";
 
-export const watcher = (done) => {
+export const watcher = done => {
 	watch(paths.html, html);
 	watch("./src/html/**/*.html", html);
 	watch(paths.styles, styles);

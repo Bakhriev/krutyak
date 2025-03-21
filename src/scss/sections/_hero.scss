@@ -32,6 +32,9 @@
 	}
 
 	&__left {
+		position: relative;
+		z-index: 1;
+
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
@@ -194,6 +197,26 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 15px;
+
+	&::before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		@include mixins.center;
+
+		width: 1194px;
+		aspect-ratio: 1;
+		rotate: 140deg;
+
+		background-image: url("../images/icons/gradient.svg");
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		@media screen and (max-width: vars.$s992) {
+			width: 683px;
+		}
+	}
 
 	&__icon {
 		@include mixins.center;

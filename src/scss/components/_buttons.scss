@@ -1,0 +1,40 @@
+@use "../config/vars";
+@use "../utils/mixins";
+
+.btn {
+	@include mixins.btn-reset;
+
+	padding: 25px 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+
+	font-weight: 600;
+	line-height: 132%;
+	letter-spacing: -0.01em;
+	color: var(--white);
+
+	border-radius: 73px;
+	background-color: #44b5b1;
+	transition:
+		background-color 150ms ease-in-out,
+		scale 50ms ease-in-out;
+
+	@include mixins.hover {
+		background-color: #23a39e;
+	}
+
+	&:focus-visible {
+		background-color: #23a39e;
+	}
+
+	&:active {
+		scale: 0.99;
+	}
+
+	@media screen and (max-width: vars.$s992) {
+		padding: 20px 15px;
+		font-size: 14px;
+	}
+}

@@ -1,22 +1,7 @@
 @use "../config/vars";
 @use "../utils/mixins";
 
-.title {
-	font-weight: 800;
-	font-size: 34px;
-	line-height: 132%;
-	letter-spacing: -0.01em;
-	color: #3d1701;
-
-	@media screen and (max-width: vars.$s992) {
-		font-size: 26px;
-	}
-}
-
 .benefits {
-	&__container {
-	}
-
 	&__top {
 		margin-bottom: 50px;
 
@@ -32,9 +17,6 @@
 		@media screen and (max-width: vars.$s992) {
 			margin-bottom: 10px;
 		}
-	}
-
-	&__title {
 	}
 }
 

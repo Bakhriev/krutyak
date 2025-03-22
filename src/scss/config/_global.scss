@@ -1,3 +1,5 @@
+@use "../config/vars";
+
 .app {
 	display: flex;
 	flex-direction: column;
@@ -22,4 +24,24 @@
 
 body {
 	background-color: #fbe7e5;
+}
+
+.title-2 {
+	font-weight: 800;
+	font-size: 25px;
+	line-height: 132%;
+	letter-spacing: -0.01em;
+	color: #3d1701;
+
+	@media screen and (max-width: vars.$s992) {
+		font-size: 20px;
+	}
+}
+
+.title-3 {
+	font-weight: 800;
+	font-size: 18px;
+	line-height: 132%;
+	letter-spacing: -0.01em;
+	color: #3d1701;
 }

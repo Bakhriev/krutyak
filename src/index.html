@@ -35,6 +35,10 @@
 			type="font/woff2"
 			crossorigin />
 
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+		<link rel="stylesheet" href="./vendors/swiper/swiper-bundle.min.css" />
 		<link rel="stylesheet" href="./css/main.css" />
 	</head>
 	<body>
@@ -43,6 +47,7 @@
 			<main class="main">
 				<!--  -->
 				@include('./html/hero.html')
+
 				<div class="text-container-wrapper">
 					<div class="container">
 						<div class="text-container">
@@ -68,10 +73,11 @@
 						</div>
 					</div>
 				</div>
+
 				<section class="benefits">
 					<div class="benefits__container container">
 						<div class="benefits__top">
-							<h2 class="benefits__title title">
+							<h2 class="title">
 								Не&nbsp;просто еда&nbsp;&mdash; кулинарное шоу для гостей
 							</h2>
 
@@ -167,11 +173,242 @@
 						</div>
 					</div>
 				</section>
+
+				<section class="concepts">
+					<div class="container">
+						<div class="concepts__inner">
+							<div class="concepts__top">
+								<h2 class="title-2">
+									Фирменные концепции, которые покорили гостей
+								</h2>
+
+								<div class="tip-card concepts__tip-card">
+									<svg width="24" height="24" class="tip-card__icon">
+										<use href="./images/sprite/sprite.svg#information"></use>
+									</svg>
+									<p>
+										<b>Факт:</b> Наши корнеры собирают вокруг себя больше людей,
+										чем фотозоны. Потому что вкусная еда&nbsp;&mdash; лучший
+										магнит!
+									</p>
+								</div>
+							</div>
+
+							<div class="tab">
+								<div class="tab__controls">
+									<button class="tab__btn" data-active="true" data-id="1">
+										<svg width="25" height="25" class="tab__btn-icon">
+											<use href="./images/sprite/sprite.svg#pizza"></use>
+										</svg>
+										<span>Крутяк</span>
+									</button>
+
+									<button class="tab__btn" data-active="false" data-id="2">
+										<svg width="25" height="25" class="tab__btn-icon">
+											<use href="./images/sprite/sprite.svg#noodles"></use>
+										</svg>
+										<span>Гуа Бао</span>
+									</button>
+
+									<button class="tab__btn" data-active="false" data-id="3">
+										<svg width="25" height="25" class="tab__btn-icon">
+											<use href="./images/sprite/sprite.svg#bread"></use>
+										</svg>
+										<span>Кубанос</span>
+									</button>
+
+									<button class="tab__btn" data-active="false" data-id="4">
+										<svg width="25" height="25" class="tab__btn-icon">
+											<use href="./images/sprite/sprite.svg#cup"></use>
+										</svg>
+										<span>Кофейня</span>
+									</button>
+
+									<button class="tab__btn" data-active="false" data-id="5">
+										<svg width="25" height="25" class="tab__btn-icon">
+											<use href="./images/sprite/sprite.svg#cutlery"></use>
+										</svg>
+										<span>Столовая</span>
+									</button>
+								</div>
+
+								<div class="tab__panels">
+									<!-- Panel 1 -->
+									<div class="tab__panel" data-active="true" data-id="1">
+										<div class="concepts__grid">
+											<div class="concepts__content">
+												<div class="concepts__info">
+													<h3 class="title-2">
+														&laquo;КРУТЯК&raquo;&nbsp;&mdash; гастро-шоу,
+														которое запомнится!
+													</h3>
+													<p class="concepts__text">
+														Это не&nbsp;просто еда&nbsp;&mdash; это эффектный,
+														стильный и&nbsp;мощный гастро-экспириенс.
+														Мы&nbsp;сами придумали и&nbsp;проработали этот
+														формат, чтобы гости получили не&nbsp;просто вкусное
+														блюдо, а&nbsp;настоящий вау-эффект
+													</p>
+												</div>
+
+												<div class="counter-cards concepts__counter-cards">
+													<div class="counter-card">
+														<p class="counter-card__text">
+															Авторская концепция, разработанная нами
+															с&nbsp;нуля
+														</p>
+													</div>
+
+													<div class="counter-card">
+														<p class="counter-card__text">
+															Эффектная подача&nbsp;&mdash; ярко, стильно,
+															запомнят с&nbsp;первого взгляда
+														</p>
+													</div>
+
+													<div class="counter-card">
+														<p class="counter-card__text">
+															Идеально для событий, где важны эмоции
+															и&nbsp;вау-эффект
+														</p>
+													</div>
+												</div>
+
+												<div class="concepts__box">
+													<h3 class="title-3">Для каких событий</h3>
+
+													<div class="badges">
+														<div class="badge">Фестивали</div>
+														<div class="badge">Концерты</div>
+														<div class="badge">Вечеринки</div>
+														<div class="badge">Корпоративы</div>
+														<div class="badge">Спортивные мероприятия</div>
+														<div class="badge">Уличные гуляния</div>
+													</div>
+												</div>
+
+												<div class="concepts__actions">
+													<button class="btn concepts__btn">
+														Заказать обслуживание
+													</button>
+													<p class="concepts__subtext">
+														Быстро подберем для вас оптимальный формат
+														обслуживания исходя из бюджета и&nbsp;условий
+														мероприятия
+													</p>
+												</div>
+											</div>
+
+											<div class="concepts__slider-wrapper">
+												<div class="swiper concepts__slider">
+													<div class="swiper-wrapper">
+														<div class="swiper-slide">
+															<a
+																href="./images/slider.jpg"
+																data-fancybox="concepts-gallery"
+																data-caption="Caption #1">
+																<img src="./images/slider.jpg" alt="" />
+															</a>
+														</div>
+
+														<div class="swiper-slide">
+															<a
+																href="./images/slider.jpg"
+																data-fancybox="concepts-gallery"
+																data-caption="Caption #2">
+																<img src="./images/slider.jpg" alt="" />
+															</a>
+														</div>
+													</div>
+												</div>
+
+												<div class="concepts__slider-controls-wrapper">
+													<div class="image-zoom">
+														<div class="image-zoom__icon-wrapper">
+															<svg
+																width="25"
+																height="24"
+																viewBox="0 0 25 24"
+																fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	opacity="0.4"
+																	d="M12 21C17.2467 21 21.5 16.7467 21.5 11.5C21.5 6.25329 17.2467 2 12 2C6.75329 2 2.5 6.25329 2.5 11.5C2.5 16.7467 6.75329 21 12 21Z"
+																	fill="white" />
+																<path
+																	d="M21.8 22.0001C21.62 22.0001 21.44 21.9301 21.31 21.8001L19.45 19.9401C19.18 19.6701 19.18 19.2301 19.45 18.9501C19.72 18.6801 20.16 18.6801 20.44 18.9501L22.3 20.8101C22.57 21.0801 22.57 21.5201 22.3 21.8001C22.16 21.9301 21.98 22.0001 21.8 22.0001Z"
+																	fill="white" />
+																<path
+																	d="M14.7 10.95H12.95V9.19995C12.95 8.78995 12.61 8.44995 12.2 8.44995C11.79 8.44995 11.45 8.78995 11.45 9.19995V10.95H9.70001C9.29001 10.95 8.95001 11.29 8.95001 11.7C8.95001 12.11 9.29001 12.45 9.70001 12.45H11.45V14.2C11.45 14.61 11.79 14.95 12.2 14.95C12.61 14.95 12.95 14.61 12.95 14.2V12.45H14.7C15.11 12.45 15.45 12.11 15.45 11.7C15.45 11.29 15.11 10.95 14.7 10.95Z"
+																	fill="white" />
+															</svg>
+														</div>
+
+														<span>Кликните по&nbsp;фото для увеличения</span>
+													</div>
+
+													<div class="slider-controls">
+														<button class="slider-controls__prev">
+															<svg
+																width="24"
+																height="24"
+																viewBox="0 0 24 24"
+																fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M18 14.6701V9.33008C18 6.01008 15.65 4.66008 12.78 6.31007L11.5 7.05007C11.19 7.23007 11 7.56008 11 7.92008V16.0801C11 16.4401 11.19 16.7701 11.5 16.9501L12.78 17.6901C15.65 19.3401 18 17.9901 18 14.6701Z"
+																	fill="white" />
+																<path
+																	opacity="0.4"
+																	d="M10 15.2099V8.77994C10 8.38994 9.58 8.14994 9.25 8.34994L8.15 8.98994C5.28 10.6399 5.28 13.3599 8.15 15.0099L9.25 15.6499C9.58 15.8399 10 15.5999 10 15.2099Z"
+																	fill="white" />
+															</svg>
+														</button>
+
+														<div class="slider-controls__progress">
+															<span data-progress="current">1</span>
+															<span class="fz-10">из</span>
+															<span data-progress="all">15</span>
+														</div>
+
+														<button class="slider-controls__next">
+															<svg
+																width="24"
+																height="24"
+																viewBox="0 0 24 24"
+																fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M6 9.32993V14.6699C6 17.9899 8.35 19.3399 11.22 17.6899L12.5 16.9499C12.81 16.7699 13 16.4399 13 16.0799V7.91993C13 7.55993 12.81 7.22993 12.5 7.04993L11.22 6.30992C8.35 4.65992 6 6.00993 6 9.32993Z"
+																	fill="white" />
+																<path
+																	opacity="0.4"
+																	d="M14 8.79006V15.2201C14 15.6101 14.42 15.8501 14.75 15.6501L15.85 15.0101C18.72 13.3601 18.72 10.6401 15.85 8.99006L14.75 8.35006C14.42 8.16006 14 8.40006 14 8.79006Z"
+																	fill="white" />
+															</svg>
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Panel 2 -->
+									<div class="tab__panel" data-active="false" data-id="2">
+										Some content
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 				<!--  -->
 			</main>
 			@include('./html/footer.html')
 		</div>
 
+		<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+		<script src="./vendors/swiper/swiper-bundle.min.js"></script>
 		<script type="module" src="./js/main.js"></script>
 	</body>
 </html>

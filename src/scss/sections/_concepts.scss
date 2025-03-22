@@ -2,12 +2,6 @@
 @use "../utils/mixins";
 
 .concepts {
-	padding: 70px 0;
-
-	@media screen and (max-width: vars.$s992) {
-		padding: 30px 0;
-	}
-
 	&__inner {
 		padding: 40px;
 

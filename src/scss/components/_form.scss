@@ -62,6 +62,7 @@
 		.field__label {
 			position: relative;
 			width: fit-content;
+
 			&::after {
 				padding-left: 2px;
 				content: "*";

@@ -184,6 +184,14 @@
 		@include mixins.center;
 		position: absolute;
 		z-index: 1;
+
+		@media screen and (max-width: vars.$s480) {
+			top: auto;
+			bottom: 0;
+			translate: -50% 32px;
+			width: 65px;
+			height: 65px;
+		}
 	}
 
 	&__col {

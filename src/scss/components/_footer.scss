@@ -1,0 +1,41 @@
+@use "../utils/mixins";
+@use "../config/vars";
+
+.footer {
+	padding: 40px 0;
+
+	font-family: var(--font-family);
+	font-weight: 500;
+	font-size: 12px;
+	letter-spacing: -0.01em;
+	color: #8c6f5e;
+
+	@media screen and (max-width: vars.$s480) {
+		padding: 14px 0;
+	}
+
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+
+		@media screen and (max-width: vars.$s768) {
+			flex-direction: column;
+			gap: 15px;
+			text-align: center;
+		}
+	}
+
+	&__politic {
+		transition: color 150ms ease-in-out;
+
+		&:focus-visible {
+			color: #3d1701;
+		}
+
+		@include mixins.hover {
+			color: #3d1701;
+		}
+	}
+}

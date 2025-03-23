@@ -2,6 +2,19 @@
 @use "../utils/mixins";
 
 .experience {
+	.swiper-pagination {
+		padding-top: 15px;
+		position: static !important;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		display: none;
+
+		@media screen and (max-width: vars.$s992) {
+			display: flex;
+		}
+	}
 	&__top {
 		margin-bottom: 50px;
 		display: flex;
@@ -19,6 +32,10 @@
 		.slider-controls__prev,
 		.slider-controls__next {
 			background-color: #f0f9f9;
+		}
+
+		@media screen and (max-width: vars.$s992) {
+			display: none;
 		}
 	}
 

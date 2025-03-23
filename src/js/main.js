@@ -15,6 +15,11 @@ const experienceSlider = new Swiper(".experience__slider", {
 		nextEl: ".experience__controls .slider-controls__next",
 		prevEl: ".experience__controls .slider-controls__prev",
 	},
+
+	pagination: {
+		el: ".experience .swiper-pagination",
+		clickable: true,
+	},
 });
 
 const contentCardSlider1 = new Swiper(

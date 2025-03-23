@@ -142,3 +142,9 @@ const mask = new IMask(document.getElementById("user-phone"), {
 	mask: "+7(000)000-00-00",
 	lazy: true,
 });
+
+AOS.init({
+	duration: 600,
+	once: true,
+	offset: 200,
+});

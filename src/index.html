@@ -35,12 +35,14 @@
 			type="font/woff2"
 			crossorigin />
 
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 		<link rel="stylesheet" href="./vendors/swiper/swiper-bundle.min.css" />
 		<link rel="stylesheet" href="./css/main.css" />
 	</head>
+
 	<body>
 		<div class="app">
 			@include('./html/header.html')
@@ -48,7 +50,7 @@
 				<!--  -->
 				@include('./html/hero.html')
 
-				<div class="text-container-wrapper">
+				<div class="text-container-wrapper" data-aos="zoom-in">
 					<div class="container">
 						<div class="text-container">
 							<div class="text-container__item">
@@ -74,14 +76,14 @@
 					</div>
 				</div>
 
-				<section class="benefits section">
+				<section class="benefits section" data-aos="zoom-in">
 					<div class="container">
 						<div class="benefits__top">
-							<h2 class="title">
+							<h2 class="title" data-aos-delay="150" data-aos="fade-right">
 								Не&nbsp;просто еда&nbsp;&mdash; кулинарное шоу для гостей
 							</h2>
 
-							<div class="tip-card">
+							<div class="tip-card" data-aos-delay="150" data-aos="fade-left">
 								<svg width="24" height="24" class="tip-card__icon">
 									<use href="./images/sprite/sprite.svg#information"></use>
 								</svg>
@@ -94,7 +96,10 @@
 						</div>
 
 						<div class="benefits-cards">
-							<div class="benefit-card benefit-card--1">
+							<div
+								class="benefit-card benefit-card--1"
+								data-aos="fade-up"
+								data-aos-delay="300">
 								<div class="benefit-card__count">01.</div>
 
 								<div class="benefit-card__info">
@@ -107,14 +112,17 @@
 								</div>
 							</div>
 
-							<div class="benefit-card">
+							<div class="benefit-card" data-aos="fade-up" data-aos-delay="350">
 								<img
 									src="./images/benefits/benefit_1.jpg"
 									alt=""
 									class="benefit-card__img" />
 							</div>
 
-							<div class="benefit-card benefit-card--2">
+							<div
+								class="benefit-card benefit-card--2"
+								data-aos="fade-up"
+								data-aos-delay="300">
 								<div class="benefit-card__count">02.</div>
 
 								<div class="benefit-card__info">
@@ -127,21 +135,24 @@
 								</div>
 							</div>
 
-							<div class="benefit-card">
+							<div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
 								<img
 									src="./images/benefits/benefit_2.jpg"
 									alt=""
 									class="benefit-card__img" />
 							</div>
 
-							<div class="benefit-card">
+							<div class="benefit-card" data-aos="fade-up" data-aos-delay="450">
 								<img
 									src="./images/benefits/benefit_3.jpg"
 									alt=""
 									class="benefit-card__img" />
 							</div>
 
-							<div class="benefit-card benefit-card--3">
+							<div
+								class="benefit-card benefit-card--3"
+								data-aos="fade-up"
+								data-aos-delay="500">
 								<div class="benefit-card__count">03.</div>
 
 								<div class="benefit-card__info">
@@ -153,14 +164,17 @@
 								</div>
 							</div>
 
-							<div class="benefit-card">
+							<div class="benefit-card" data-aos="fade-up" data-aos-delay="550">
 								<img
 									src="./images/benefits/benefit_4.jpg"
 									alt=""
 									class="benefit-card__img" />
 							</div>
 
-							<div class="benefit-card benefit-card--4">
+							<div
+								class="benefit-card benefit-card--4"
+								data-aos="fade-up"
+								data-aos-delay="600">
 								<div class="benefit-card__count">04.</div>
 
 								<div class="benefit-card__info">
@@ -174,7 +188,7 @@
 					</div>
 				</section>
 
-				<section class="concepts section">
+				<section class="concepts section" data-aos="zoom-in">
 					<div class="container">
 						<div class="concepts__inner">
 							<div class="concepts__top">
@@ -458,10 +472,13 @@
 					</div>
 				</section>
 
-				<section class="customers section">
+				<section class="customers section" data-aos="zoom-in">
 					<div class="customers__container container">
 						<div class="customers__logos">
-							<div class="customers__logo-wrapper">
+							<div
+								class="customers__logo-wrapper"
+								data-aos="fade-up"
+								data-aos-delay="300">
 								<img
 									loading="lazy"
 									width="140"
@@ -471,7 +488,10 @@
 									class="customers__logo-img" />
 							</div>
 
-							<div class="customers__logo-wrapper">
+							<div
+								class="customers__logo-wrapper"
+								data-aos="fade-up"
+								data-aos-delay="350">
 								<img
 									loading="lazy"
 									width="113"
@@ -481,7 +501,10 @@
 									class="customers__logo-img" />
 							</div>
 
-							<div class="customers__logo-wrapper">
+							<div
+								class="customers__logo-wrapper"
+								data-aos="fade-up"
+								data-aos-delay="400">
 								<img
 									loading="lazy"
 									width="135"
@@ -491,7 +514,10 @@
 									class="customers__logo-img" />
 							</div>
 
-							<div class="customers__logo-wrapper">
+							<div
+								class="customers__logo-wrapper"
+								data-aos="fade-up"
+								data-aos-delay="450">
 								<img
 									loading="lazy"
 									width="167"
@@ -501,7 +527,10 @@
 									class="customers__logo-img" />
 							</div>
 
-							<div class="customers__logo-wrapper">
+							<div
+								class="customers__logo-wrapper"
+								data-aos="fade-up"
+								data-aos-delay="500">
 								<img
 									loading="lazy"
 									width="83"
@@ -511,7 +540,10 @@
 									class="customers__logo-img" />
 							</div>
 
-							<div class="customers__logo-wrapper">
+							<div
+								class="customers__logo-wrapper"
+								data-aos="fade-up"
+								data-aos-delay="550">
 								<img
 									loading="lazy"
 									width="131"
@@ -521,7 +553,10 @@
 									class="customers__logo-img" />
 							</div>
 
-							<div class="customers__logo-wrapper">
+							<div
+								class="customers__logo-wrapper"
+								data-aos="fade-up"
+								data-aos-delay="600">
 								<img
 									loading="lazy"
 									width="140"
@@ -531,7 +566,10 @@
 									class="customers__logo-img" />
 							</div>
 
-							<div class="customers__logo-wrapper">
+							<div
+								class="customers__logo-wrapper"
+								data-aos="fade-up"
+								data-aos-delay="650">
 								<img
 									loading="lazy"
 									width="90"
@@ -543,10 +581,16 @@
 						</div>
 
 						<div class="customers__info">
-							<h2 class="customers__title title">
+							<h2
+								class="customers__title title"
+								data-aos="fade-left"
+								data-aos-delay="300">
 								Постоянные резиденты крупных мероприятий
 							</h2>
-							<p class="customers__text">
+							<p
+								class="customers__text"
+								data-aos="fade-left"
+								data-aos-delay="400">
 								Много лет сотрудничаем с&nbsp;крупными мировыми
 								и&nbsp;российскими событиями и&nbsp;накормили более 100&nbsp;000
 								гостей
@@ -555,7 +599,7 @@
 					</div>
 				</section>
 
-				<section class="experience section">
+				<section class="experience section" data-aos="zoom-in">
 					<div class="container">
 						<div class="experience__top">
 							<h2 class="experience__title title">
@@ -599,7 +643,10 @@
 							</div>
 						</div>
 
-						<div class="swiper experience__slider">
+						<div
+							class="swiper experience__slider"
+							data-aos="flip-left"
+							data-aos-delay="300">
 							<div class="swiper-wrapper">
 								<div class="swiper-slide">
 									<div class="content-card content-card--1">
@@ -1029,14 +1076,17 @@
 					</div>
 				</section>
 
-				<section class="keys section">
+				<section class="keys section" data-aos="zoom-in">
 					<div class="container">
 						<div class="keys__top">
-							<h2 class="keys__title title">
+							<h2
+								class="keys__title title"
+								data-aos="fade-right"
+								data-aos-delay="300">
 								Мы&nbsp;делаем кейтеринг проще, вкуснее и&nbsp;ярче
 							</h2>
 
-							<div class="tip-card">
+							<div class="tip-card" data-aos="fade-left" data-aos-delay="300">
 								<svg width="24" height="24" class="tip-card__icon">
 									<use href="./images/sprite/sprite.svg#information"></use>
 								</svg>
@@ -1049,7 +1099,7 @@
 						</div>
 
 						<div class="keys__items">
-							<div class="key-item">
+							<div class="key-item" data-aos="fade-up" data-aos-delay="400">
 								<svg width="50" height="50">
 									<use href="./images/sprite/sprite.svg#like"></use>
 								</svg>
@@ -1063,7 +1113,7 @@
 								</div>
 							</div>
 
-							<div class="key-item">
+							<div class="key-item" data-aos="fade-up" data-aos-delay="450">
 								<svg width="50" height="50">
 									<use href="./images/sprite/sprite.svg#shop"></use>
 								</svg>
@@ -1079,7 +1129,7 @@
 								</div>
 							</div>
 
-							<div class="key-item">
+							<div class="key-item" data-aos="fade-up" data-aos-delay="500">
 								<svg width="50" height="50">
 									<use href="./images/sprite/sprite.svg#timer"></use>
 								</svg>
@@ -1094,7 +1144,7 @@
 								</div>
 							</div>
 
-							<div class="key-item">
+							<div class="key-item" data-aos="fade-up" data-aos-delay="550">
 								<svg width="50" height="50">
 									<use href="./images/sprite/sprite.svg#magicpen"></use>
 								</svg>
@@ -1107,7 +1157,7 @@
 								</div>
 							</div>
 
-							<div class="key-item">
+							<div class="key-item" data-aos="fade-up" data-aos-delay="600">
 								<svg width="50" height="50">
 									<use href="./images/sprite/sprite.svg#blur"></use>
 								</svg>
@@ -1120,7 +1170,7 @@
 								</div>
 							</div>
 
-							<div class="key-item">
+							<div class="key-item" data-aos="fade-up" data-aos-delay="650">
 								<svg width="50" height="50">
 									<use href="./images/sprite/sprite.svg#ranking"></use>
 								</svg>
@@ -1136,7 +1186,7 @@
 					</div>
 				</section>
 
-				<section class="contacts">
+				<section class="contacts" data-aos="zoom-in">
 					<div class="container">
 						<div class="contacts__inner">
 							<div class="contacts__left">
@@ -1337,7 +1387,9 @@
 									</label>
 
 									<div class="form__actions">
-										<button class="btn form__btn">Отправить заявку</button>
+										<button class="btn form__btn loading">
+											Отправить заявку
+										</button>
 
 										<p class="form__text">
 											Нажимая на&nbsp;кнопку &laquo;Отправить заявку&raquo;,
@@ -1356,6 +1408,7 @@
 			@include('./html/footer.html')
 		</div>
 
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 		<script src="./vendors/Imask.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 		<script src="./vendors/swiper/swiper-bundle.min.js"></script>

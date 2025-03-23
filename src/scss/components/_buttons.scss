@@ -33,8 +33,43 @@
 		scale: 0.99;
 	}
 
+	&.loading {
+		position: relative;
+		overflow: hidden;
+		pointer-events: none;
+		opacity: 0.8;
+
+		&::before {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			left: 50%;
+			top: 50%;
+			translate: -50% -50%;
+			width: 24px;
+			height: 24px;
+			border: 3px solid white;
+			border-top-color: transparent;
+			border-radius: 50%;
+			animation: spin 0.8s linear infinite;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background-color: rgba(0, 0, 0, 0.3);
+		}
+	}
+
 	@media screen and (max-width: vars.$s992) {
 		padding: 20px 15px;
 		font-size: 14px;
+	}
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
 	}
 }

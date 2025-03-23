@@ -1136,7 +1136,7 @@
 					</div>
 				</section>
 
-				<section class="contacts">
+				<section class="contacts section">
 					<div class="container">
 						<div class="contacts__inner">
 							<div class="contacts__left">
@@ -1158,7 +1158,10 @@
 										>
 										<ul class="socials">
 											<li>
-												<a href="#" target="_blank" class="socials__link">
+												<a
+													href="#"
+													target="_blank"
+													class="socials__link socials__link--whatsapp">
 													<svg width="22" height="21">
 														<use
 															href="./images/sprite/sprite.svg#whatsapp"></use>
@@ -1167,7 +1170,10 @@
 											</li>
 
 											<li>
-												<a href="#" target="_blank" class="socials__link">
+												<a
+													href="#"
+													target="_blank"
+													class="socials__link socials__link--telegram">
 													<svg width="23" height="23">
 														<use
 															href="./images/sprite/sprite.svg#telegram"></use>
@@ -1205,22 +1211,142 @@
 
 									<div class="our-socials">
 										<span class="our-socials__text">
-											Подписывайтесь на&nbsp;нас в&nbsp;соцсетях
+											Подписывайтесь <br />
+											на&nbsp;нас в&nbsp;соцсетях
 										</span>
-										<img
-											width="50"
-											height="50"
-											src="./images/icons/instagram.svg"
-											alt="instagram" />
-										<img
-											width="50"
-											height="50"
-											src="./images/icons/telegram.svg"
-											alt="telegram" />
+										<div class="our-socials__box">
+											<img
+												width="50"
+												height="50"
+												src="./images/icons/instagram.svg"
+												alt="instagram" />
+											<img
+												width="50"
+												height="50"
+												src="./images/icons/telegram.svg"
+												alt="telegram" />
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="contacts__right"></div>
+							<div class="contacts__right">
+								<form action="#" method="post" class="form">
+									<h3 class="form__title">Оставьте заявку:</h3>
+									<div class="form__row">
+										<div class="field">
+											<label for="user-name" class="field__label"
+												>Ваше имя</label
+											>
+											<div class="field__input-wrapper">
+												<svg width="20" height="20" class="field__icon">
+													<use href="./images/sprite/sprite.svg#user"></use>
+												</svg>
+
+												<input
+													autocomplete="off"
+													class="field__input"
+													type="text"
+													name="user-name"
+													id="user-name"
+													placeholder="Ваше имя" />
+											</div>
+										</div>
+
+										<div class="field required">
+											<label for="user-phone" class="field__label"
+												>Телефон</label
+											>
+											<div class="field__input-wrapper">
+												<svg width="20" height="20" class="field__icon">
+													<use href="./images/sprite/sprite.svg#call"></use>
+												</svg>
+
+												<input
+													autocomplete="off"
+													required
+													class="field__input"
+													type="text"
+													name="user-phone"
+													id="user-phone"
+													placeholder="+7" />
+											</div>
+										</div>
+									</div>
+
+									<div class="form__row">
+										<div class="field">
+											<label for="date-event" class="field__label"
+												>Дата мероприятия</label
+											>
+											<div class="field__input-wrapper">
+												<svg width="20" height="20" class="field__icon">
+													<use href="./images/sprite/sprite.svg#calendar"></use>
+												</svg>
+
+												<input
+													tabindex="-1"
+													class="field__input"
+													type="text"
+													name="date-event"
+													id="date-event"
+													readonly
+													value="12 июня 2025" />
+											</div>
+										</div>
+
+										<div class="field">
+											<label for="guests-count" class="field__label"
+												>Количество гостей</label
+											>
+											<div class="field__input-wrapper">
+												<svg width="20" height="20" class="field__icon">
+													<use href="./images/sprite/sprite.svg#people"></use>
+												</svg>
+
+												<input
+													tabindex="-1"
+													class="field__input"
+													type="text"
+													name="guests-count"
+													id="guests-count"
+													readonly
+													value="10 000" />
+											</div>
+										</div>
+									</div>
+
+									<div class="field">
+										<label for="user-requests" class="field__label"
+											>Дополнительные пожелания</label
+										>
+
+										<textarea
+											name="user-requests"
+											id="user-requests"
+											placeholder="Особые запросы, пожелания и т. д."
+											class="field__textarea"></textarea>
+									</div>
+
+									<label class="custom-checkbox-label">
+										<input checked type="checkbox" class="custom-checkbox" />
+										<span
+											>Нажимая кнопку &laquo;Отправить заявку&raquo;,
+											вы&nbsp;соглашаетесь с&nbsp;политикой обработки
+											персональных данных</span
+										>
+									</label>
+
+									<div class="form__actions">
+										<button class="btn form__btn">Отправить заявку</button>
+
+										<p class="form__text">
+											Нажимая на&nbsp;кнопку &laquo;Отправить заявку&raquo;,
+											вы&nbsp;даете согласие на&nbsp;обработку своих
+											персональных данных
+										</p>
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
 				</section>
@@ -1230,6 +1356,7 @@
 			@include('./html/footer.html')
 		</div>
 
+		<script src="./vendors/Imask.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 		<script src="./vendors/swiper/swiper-bundle.min.js"></script>
 		<script type="module" src="./js/main.js"></script>

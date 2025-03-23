@@ -137,3 +137,8 @@ expandInit();
 Fancybox.bind('[data-fancybox="concepts-gallery"]', {});
 Fancybox.bind('[data-fancybox="content-card--1-gallery"]', {});
 Fancybox.bind('[data-fancybox="content-card--2-gallery"]', {});
+
+const mask = new IMask(document.getElementById("user-phone"), {
+	mask: "+7(000)000-00-00",
+	lazy: true,
+});

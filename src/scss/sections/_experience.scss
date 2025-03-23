@@ -24,6 +24,10 @@
 
 	&__title {
 		max-width: 650px;
+
+		@media screen and (max-width: vars.$s992) {
+			max-width: 100%;
+		}
 	}
 
 	&__controls {

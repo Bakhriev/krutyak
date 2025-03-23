@@ -209,6 +209,15 @@
 		flex-shrink: 0;
 		translate: 3px 0;
 	}
+
+	@media screen and (max-width: vars.$s992) {
+		width: 45px;
+
+		svg {
+			width: 14px;
+			height: 17px;
+		}
+	}
 }
 
 .time-container {

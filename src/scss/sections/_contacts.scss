@@ -2,7 +2,31 @@
 @use "../config/vars";
 
 .contacts {
+	position: relative;
+
 	padding-top: 70px;
+
+	&::before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		@include mixins.center;
+
+		width: 1440px;
+		aspect-ratio: 1;
+		rotate: 210deg;
+		left: 60%;
+
+		background-image: url("../images/icons/gradient.svg");
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+
+		@media screen and (max-width: vars.$s992) {
+			width: 683px;
+			left: 50%;
+		}
+	}
 
 	@media screen and (max-width: vars.$s992) {
 		padding-top: 30px;

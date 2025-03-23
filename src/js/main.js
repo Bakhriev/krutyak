@@ -49,25 +49,6 @@ const contentCardSlider2 = new Swiper(
 	}
 );
 
-const conceptsCurrent = document.querySelector(
-	'.concepts__slider-wrapper [data-progress="current"]'
-);
-const conceptsAll = document.querySelector(
-	'.concepts__slider-wrapper [data-progress="all"]'
-);
-
-// On first Init
-setControlsProgress(conceptsSlider.activeIndex, conceptsCurrent, conceptsAll);
-
-conceptsSlider.on("slideChange", () => {
-	setControlsProgress(conceptsSlider.activeIndex, conceptsCurrent, conceptsAll);
-});
-
-function setControlsProgress(currentSlide, current, all) {
-	current.textContent = currentSlide + 1;
-	all.textContent = conceptsSlider.slides.length;
-}
-
 const tabInit = () => {
 	const tabs = document.querySelectorAll("[data-tab]");
 
@@ -138,6 +119,7 @@ Fancybox.bind('[data-fancybox="concepts-gallery"]', {});
 Fancybox.bind('[data-fancybox="content-card--1-gallery"]', {});
 Fancybox.bind('[data-fancybox="content-card--2-gallery"]', {});
 
+// Imask
 const mask = new IMask(document.getElementById("user-phone"), {
 	mask: "+7(000)000-00-00",
 	lazy: true,

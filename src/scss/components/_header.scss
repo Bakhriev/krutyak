@@ -123,11 +123,10 @@
 	line-height: 132%;
 	letter-spacing: -0.01em;
 	color: #3d1701;
-
-	transition: scale 150ms linear;
+	transition: color 150ms ease-in-out;
 
 	@include mixins.hover {
-		scale: 1.05;
+		color: #ff9d97;
 
 		.call-link__icon {
 			animation: call-ring 0.5s ease-in-out infinite;
@@ -136,9 +135,6 @@
 
 	&__icon {
 		flex-shrink: 0;
-
-		width: 18px;
-		height: 18px;
 	}
 
 	@media screen and (max-width: vars.$s480) {

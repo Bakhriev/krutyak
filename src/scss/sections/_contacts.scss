@@ -1,0 +1,135 @@
+@use "../utils/mixins";
+@use "../config/vars";
+
+.contacts {
+	padding-top: 70px;
+
+	&__inner {
+		padding: 40px;
+
+		border-radius: 18px;
+		background-color: #fff;
+	}
+
+	&__left {
+	}
+
+	&__info {
+		margin-bottom: 40px;
+
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	&__top-text {
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 140%;
+		letter-spacing: -0.01em;
+		color: #8c6f5e;
+	}
+
+	&__title {
+	}
+
+	&__text {
+		font-weight: 600;
+		font-size: 17px;
+		line-height: 157%;
+		letter-spacing: -0.01em;
+		color: #8c6f5e;
+	}
+
+	&__actions {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	&__box {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	&__small-text {
+		font-weight: 600;
+		font-size: 10px;
+		line-height: 140%;
+		letter-spacing: -0.01em;
+		color: #8c6f5e;
+	}
+
+	&__call-link {
+		font-size: 23px;
+	}
+
+	&__right {
+	}
+}
+.container {
+}
+.title {
+}
+.socials {
+	@include mixins.list-reset;
+
+	&__link {
+	}
+}
+.call-link {
+	&__icon {
+	}
+}
+.mail-link {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	font-weight: 700;
+	font-size: 23px;
+	line-height: 132%;
+	letter-spacing: -0.01em;
+	color: #3d1701;
+
+	transition: color 150ms ease-in-out;
+
+	&__icon {
+		flex-shrink: 0;
+	}
+
+	@include mixins.hover {
+		color: #ff9d97;
+
+		.mail-link__icon {
+			animation: float 1s ease-in-out infinite;
+		}
+	}
+}
+.our-socials {
+	&__text {
+	}
+}
+
+@keyframes float {
+	0% {
+		transform: translateY(0px);
+	}
+
+	25% {
+		transform: translateY(-5px);
+	}
+
+	50% {
+		transform: translateY(0px);
+	}
+
+	75% {
+		transform: translateY(-5px);
+	}
+
+	100% {
+		transform: translateY(0px);
+	}
+}

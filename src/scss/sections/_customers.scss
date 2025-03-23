@@ -29,9 +29,10 @@
 			z-index: -1;
 			@include mixins.center;
 
-			width: 1194px;
+			width: 845px;
 			aspect-ratio: 1;
 			rotate: -45deg;
+			left: 60%;
 
 			background-image: url("../images/icons/gradient.svg");
 			background-position: center center;
@@ -40,6 +41,7 @@
 
 			@media screen and (max-width: vars.$s992) {
 				width: 683px;
+				left: 50%;
 			}
 		}
 

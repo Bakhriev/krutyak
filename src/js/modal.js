@@ -3,6 +3,7 @@ import { focusTrap } from "./focusTrap.js";
 export function initModal(modalSelector, triggersSelector) {
 	const modal = document.querySelector(modalSelector);
 	const triggers = document.querySelectorAll(triggersSelector);
+	const body = document.body;
 	let cleanup;
 
 	// For focus on leave
@@ -14,6 +15,7 @@ export function initModal(modalSelector, triggersSelector) {
 
 	function show() {
 		modal.classList.add("show");
+		body.classList.add("scroll-lock");
 		entryElement = document.activeElement;
 
 		cleanup = focusTrap(modal, true);
@@ -23,6 +25,7 @@ export function initModal(modalSelector, triggersSelector) {
 
 	function hide() {
 		modal.classList.remove("show");
+		body.classList.remove("scroll-lock");
 
 		entryElement.focus();
 		window.removeEventListener("keydown", onPressEscape);

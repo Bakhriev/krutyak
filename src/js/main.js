@@ -7,6 +7,17 @@ const conceptsSlider = new Swiper(".concepts__slider", {
 		nextEl: ".concepts__slider-wrapper .slider-controls__next",
 		prevEl: ".concepts__slider-wrapper .slider-controls__prev",
 	},
+
+	on: {
+		slideChange: createVisibleCounter(
+			".concepts__slider-controls-wrapper [data-progress='current']",
+			".concepts__slider-controls-wrapper [data-progress='all']"
+		),
+		init: createVisibleCounter(
+			".concepts__slider-controls-wrapper [data-progress='current']",
+			".concepts__slider-controls-wrapper [data-progress='all']"
+		),
+	},
 });
 
 const experienceSlider = new Swiper(".experience__slider", {
@@ -24,12 +35,43 @@ const experienceSlider = new Swiper(".experience__slider", {
 	},
 });
 
+// Функция для обновления счетчика видимых слайдов
+function createVisibleCounter(currentSelector, allSelector) {
+	return function () {
+		const currentElement = document.querySelector(currentSelector);
+		const allElement = document.querySelector(allSelector);
+
+		if (!currentElement || !allElement) return;
+
+		const swiper = this;
+		const totalSlides = swiper.slides.length;
+
+		// Пытаемся найти видимые слайды
+		const visibleSlides = Array.from(swiper.slides).filter(slide =>
+			slide.classList.contains("swiper-slide-visible")
+		);
+
+		// Если есть видимые слайды - берём последний, если нет - берём активный
+		const lastIndex =
+			visibleSlides.length > 0
+				? Array.from(swiper.slides).indexOf(
+						visibleSlides[visibleSlides.length - 1]
+					)
+				: swiper.activeIndex;
+
+		currentElement.textContent = lastIndex + 1;
+		allElement.textContent = totalSlides;
+	};
+}
+
+// Инициализация слайдеров
 const contentCardSlider1 = new Swiper(
 	".content-card--1 .content-card__slider",
 	{
 		slidesPerView: 2,
 		slidesPerGroup: 2,
 		spaceBetween: 15,
+		watchSlidesProgress: true, // Важно для определения видимых слайдов
 
 		breakpoints: {
 			481: {
@@ -44,13 +86,11 @@ const contentCardSlider1 = new Swiper(
 		},
 
 		on: {
-			slideChange: updateCounter(
-				conceptsSlider,
+			slideChange: createVisibleCounter(
 				".content-card--1 [data-progress='current']",
 				".content-card--1 [data-progress='all']"
 			),
-			init: updateCounter(
-				conceptsSlider,
+			init: createVisibleCounter(
 				".content-card--1 [data-progress='current']",
 				".content-card--1 [data-progress='all']"
 			),
@@ -64,6 +104,7 @@ const contentCardSlider2 = new Swiper(
 		slidesPerView: 2,
 		slidesPerGroup: 2,
 		spaceBetween: 15,
+		watchSlidesProgress: true, // Важно для определения видимых слайдов
 
 		breakpoints: {
 			481: {
@@ -78,19 +119,27 @@ const contentCardSlider2 = new Swiper(
 		},
 
 		on: {
-			slideChange: updateCounter(
-				conceptsSlider,
+			slideChange: createVisibleCounter(
 				".content-card--2 [data-progress='current']",
 				".content-card--2 [data-progress='all']"
 			),
-			init: updateCounter(
-				conceptsSlider,
+			init: createVisibleCounter(
 				".content-card--2 [data-progress='current']",
 				".content-card--2 [data-progress='all']"
 			),
 		},
 	}
 );
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 const tabInit = () => {
 	const tabs = document.querySelectorAll("[data-tab]");
@@ -135,20 +184,25 @@ const expandInit = () => {
 		const btn = container.querySelector(".expandable-container__btn");
 		const btnText = btn.querySelector("[data-text]");
 
-		// For first Init
-		let isExpanded = container.dataset.expanded === "true";
-		if (isExpanded) {
-			btnText.textContent = "Скрыть";
+		const TEXT = {
+			expanded: "Скрыть",
+			collapsed: "Полное описание",
+		};
+
+		let isInitiallyExpanded = container.dataset.expanded === "true";
+
+		if (isInitiallyExpanded) {
+			btnText.textContent = TEXT.expanded;
 		}
 
 		btn.addEventListener("click", () => {
-			isExpanded = container.dataset.expanded === "true";
+			isInitiallyExpanded = container.dataset.expanded === "true";
 
-			if (isExpanded) {
-				btnText.textContent = "Полное описание";
+			if (isInitiallyExpanded) {
+				btnText.textContent = TEXT.collapsed;
 				container.dataset.expanded = "false";
 			} else {
-				btnText.textContent = "Скрыть";
+				btnText.textContent = TEXT.expanded;
 				container.dataset.expanded = "true";
 			}
 		});
@@ -156,10 +210,29 @@ const expandInit = () => {
 };
 expandInit();
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 // Fancy Init
 Fancybox.bind('[data-fancybox="concepts-gallery"]', {});
 Fancybox.bind('[data-fancybox="content-card--1-gallery"]', {});
 Fancybox.bind('[data-fancybox="content-card--2-gallery"]', {});
+
+//
+//
+//
+//
+//
+//
+//
+//
 
 // Imask
 const mask = new IMask(document.getElementById("user-phone"), {
@@ -172,25 +245,29 @@ const mask2 = new IMask(document.getElementById("user-phone-2"), {
 	lazy: true,
 });
 
+//
+//
+//
+//
+//
+//
+//
+//
+
 // Aos animations
 AOS.init({
 	duration: 600,
 	once: true,
-	offset: 200,
 });
 
-function updateCounter(slider, currentSelector, allSelector) {
-	const totalSlides = slider.slides.length; // Общее количество слайдов
-	const slidesPerView = slider.params.slidesPerView; // Видимые слайды
-	const currentStart = slider.realIndex + 1; // Первый видимый слайд
-	const currentEnd = Math.min(currentStart + slidesPerView - 1, totalSlides); // Последний видимый слайд
-
-	const current = document.querySelector(currentSelector);
-	const all = document.querySelector(allSelector);
-
-	current.textContent = `${currentStart}-${currentEnd}`;
-	all.textContent = totalSlides;
-}
+//
+//
+//
+//
+//
+//
+//
+//
 
 // Модалка с текстом Спасибо! Мы получили вашу заявку и скоро с Вами свяжемся
 const thanksModal = initModal('[data-modal="thanks-modal"]');

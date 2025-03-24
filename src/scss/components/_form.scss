@@ -113,13 +113,13 @@
 			color: #8c6f5e;
 		}
 
-		&:read-only {
-			pointer-events: none;
-			user-select: none;
+		&[type="date"] {
+			appearance: none;
+			padding-left: 50px;
+			text-align: left;
 
-			&:focus-visible {
-				outline: none;
-				border-color: transparent;
+			&::-webkit-date-and-time-value {
+				text-align: left;
 			}
 		}
 

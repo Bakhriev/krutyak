@@ -2,6 +2,9 @@
 @use "../utils/mixins";
 
 .concepts {
+	position: relative;
+	z-index: 1;
+
 	&__inner {
 		padding: 40px;
 

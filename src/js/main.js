@@ -26,11 +26,13 @@ const contentCardSlider1 = new Swiper(
 	".content-card--1 .content-card__slider",
 	{
 		slidesPerView: 2,
+		slidesPerGroup: 2,
 		spaceBetween: 15,
 
 		breakpoints: {
 			481: {
 				slidesPerView: 3,
+				slidesPerGroup: 3,
 			},
 		},
 
@@ -38,18 +40,52 @@ const contentCardSlider1 = new Swiper(
 			nextEl: ".content-card--1 .slider-controls__next",
 			prevEl: ".content-card--1 .slider-controls__prev",
 		},
+
+		on: {
+			slideChange: updateCounter(
+				conceptsSlider,
+				".content-card--1 [data-progress='current']",
+				".content-card--1 [data-progress='all']"
+			),
+			init: updateCounter(
+				conceptsSlider,
+				".content-card--1 [data-progress='current']",
+				".content-card--1 [data-progress='all']"
+			),
+		},
 	}
 );
 
 const contentCardSlider2 = new Swiper(
 	".content-card--2 .content-card__slider",
 	{
-		slidesPerView: 3,
+		slidesPerView: 2,
+		slidesPerGroup: 2,
 		spaceBetween: 15,
+
+		breakpoints: {
+			481: {
+				slidesPerView: 3,
+				slidesPerGroup: 3,
+			},
+		},
 
 		navigation: {
 			nextEl: ".content-card--2 .slider-controls__next",
 			prevEl: ".content-card--2 .slider-controls__prev",
+		},
+
+		on: {
+			slideChange: updateCounter(
+				conceptsSlider,
+				".content-card--2 [data-progress='current']",
+				".content-card--2 [data-progress='all']"
+			),
+			init: updateCounter(
+				conceptsSlider,
+				".content-card--2 [data-progress='current']",
+				".content-card--2 [data-progress='all']"
+			),
 		},
 	}
 );
@@ -135,3 +171,16 @@ AOS.init({
 	once: true,
 	offset: 200,
 });
+
+function updateCounter(slider, currentSelector, allSelector) {
+	const totalSlides = slider.slides.length; // Общее количество слайдов
+	const slidesPerView = slider.params.slidesPerView; // Видимые слайды
+	const currentStart = slider.realIndex + 1; // Первый видимый слайд
+	const currentEnd = Math.min(currentStart + slidesPerView - 1, totalSlides); // Последний видимый слайд
+
+	const current = document.querySelector(currentSelector);
+	const all = document.querySelector(allSelector);
+
+	current.textContent = `${currentStart}-${currentEnd}`;
+	all.textContent = totalSlides;
+}

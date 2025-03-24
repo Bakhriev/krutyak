@@ -89,6 +89,8 @@
 }
 
 .contact-card {
+	max-width: 450px;
+
 	&__inner {
 	}
 
@@ -108,6 +110,7 @@
 }
 
 .thanks-card {
+	max-width: 380px;
 	&__inner {
 		display: flex;
 		flex-direction: column;

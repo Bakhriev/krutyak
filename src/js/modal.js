@@ -1,6 +1,6 @@
 import { focusTrap } from "./focusTrap.js";
 
-export function initModal(modalSelector, triggersSelector) {
+function initModal(modalSelector, triggersSelector) {
 	const modal = document.querySelector(modalSelector);
 	const triggers = document.querySelectorAll(triggersSelector);
 	const body = document.body;
@@ -54,3 +54,46 @@ export function initModal(modalSelector, triggersSelector) {
 
 	return { show, hide };
 }
+
+// Модалка с текстом Спасибо! Мы получили вашу заявку и скоро с Вами свяжемся
+const thanksModal = initModal('[data-modal="thanks-modal"]');
+
+// Форма в конце страницы
+const contactsForm = document.querySelector('[data-form="contacts-form"]');
+contactsForm.addEventListener("submit", e => {
+	e.preventDefault();
+	const btn = contactsForm.querySelector(".form__btn");
+
+	btn.classList.add("loading");
+
+	//
+	setTimeout(() => {
+		thanksModal.show();
+		contactsForm.reset();
+
+		btn.classList.remove("loading");
+	}, 700);
+});
+
+// Инициализация модалки с формой
+const callbackModal = initModal(
+	'[data-modal="callback-modal"]',
+	'[data-trigger="callback-modal"]'
+);
+
+const callbackForm = document.querySelector('[data-form="callback-form"]');
+callbackForm.addEventListener("submit", e => {
+	e.preventDefault();
+	const btn = callbackForm.querySelector(".form__btn");
+
+	btn.classList.add("loading");
+
+	//
+	setTimeout(() => {
+		thanksModal.show();
+		callbackForm.reset();
+		callbackModal.hide();
+
+		btn.classList.remove("loading");
+	}, 700);
+});

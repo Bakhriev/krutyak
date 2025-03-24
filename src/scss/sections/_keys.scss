@@ -1,6 +1,9 @@
 @use "../config/vars";
 
 .keys {
+	position: relative;
+	z-index: 1;
+
 	&__top {
 		margin-bottom: 50px;
 

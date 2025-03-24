@@ -194,3 +194,11 @@ body {
 .swiper-pagination-bullet-active {
 	background-color: #ff9d97;
 }
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+	-webkit-appearance: none;
+	position: absolute;
+	opacity: 0;
+	left: 20px;
+}

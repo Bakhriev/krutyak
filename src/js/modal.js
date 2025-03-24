@@ -3,11 +3,12 @@ import { focusTrap } from "./focusTrap.js";
 export function initModal(modalSelector, triggersSelector) {
 	const modal = document.querySelector(modalSelector);
 	const triggers = document.querySelectorAll(triggersSelector);
+	let cleanup;
 
 	// For focus on leave
 	let entryElement = null;
 
-	if (!modal || !triggers.length) return;
+	if (!modal) return;
 
 	const destroyer = modal.querySelector("[data-destroyer]");
 
@@ -15,7 +16,7 @@ export function initModal(modalSelector, triggersSelector) {
 		modal.classList.add("show");
 		entryElement = document.activeElement;
 
-		focusTrap(modal, true);
+		cleanup = focusTrap(modal, true);
 
 		window.addEventListener("keydown", onPressEscape);
 	}
@@ -25,6 +26,7 @@ export function initModal(modalSelector, triggersSelector) {
 
 		entryElement.focus();
 		window.removeEventListener("keydown", onPressEscape);
+		cleanup();
 	}
 
 	function onPressEscape(e) {
@@ -38,9 +40,11 @@ export function initModal(modalSelector, triggersSelector) {
 			if (e.target === modal) hide();
 		});
 
-		triggers.forEach(trigger => {
-			trigger.addEventListener("click", show);
-		});
+		if (triggers.length) {
+			triggers.forEach(trigger => {
+				trigger.addEventListener("click", show);
+			});
+		}
 	}
 
 	init();

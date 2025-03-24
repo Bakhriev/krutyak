@@ -1,3 +1,5 @@
+import { initModal } from "./modal.js";
+
 // Sliders
 const conceptsSlider = new Swiper(".concepts__slider", {
 	spaceBetween: 20,
@@ -132,7 +134,6 @@ const expandInit = () => {
 	containers.forEach(container => {
 		const btn = container.querySelector(".expandable-container__btn");
 		const btnText = btn.querySelector("[data-text]");
-		console.log(btnText);
 
 		// For first Init
 		let isExpanded = container.dataset.expanded === "true";
@@ -166,6 +167,12 @@ const mask = new IMask(document.getElementById("user-phone"), {
 	lazy: true,
 });
 
+const mask2 = new IMask(document.getElementById("user-phone-2"), {
+	mask: "+7(000)000-00-00",
+	lazy: true,
+});
+
+// Aos animations
 AOS.init({
 	duration: 600,
 	once: true,
@@ -184,3 +191,46 @@ function updateCounter(slider, currentSelector, allSelector) {
 	current.textContent = `${currentStart}-${currentEnd}`;
 	all.textContent = totalSlides;
 }
+
+// Модалка с текстом Спасибо! Мы получили вашу заявку и скоро с Вами свяжемся
+const thanksModal = initModal('[data-modal="thanks-modal"]');
+
+// Форма в конце страницы
+const contactsForm = document.querySelector('[data-form="contacts-form"]');
+contactsForm.addEventListener("submit", e => {
+	e.preventDefault();
+	const btn = contactsForm.querySelector(".form__btn");
+
+	btn.classList.add("loading");
+
+	//
+	setTimeout(() => {
+		thanksModal.show();
+		contactsForm.reset();
+
+		btn.classList.remove("loading");
+	}, 700);
+});
+
+// Инициализация модалки с формой
+const callbackModal = initModal(
+	'[data-modal="callback-modal"]',
+	'[data-trigger="callback-modal"]'
+);
+
+const callbackForm = document.querySelector('[data-form="callback-form"]');
+callbackForm.addEventListener("submit", e => {
+	e.preventDefault();
+	const btn = callbackForm.querySelector(".form__btn");
+
+	btn.classList.add("loading");
+
+	//
+	setTimeout(() => {
+		thanksModal.show();
+		callbackForm.reset();
+		callbackModal.hide();
+
+		btn.classList.remove("loading");
+	}, 700);
+});

@@ -30,3 +30,92 @@
 @use "./sections/keys";
 @use "./sections/contacts";
 // pages
+
+.modal-card {
+	position: relative;
+	padding: 30px;
+
+	border-radius: 10px;
+	background-color: #fff;
+
+	&__btn {
+		@include mixins.btn-reset;
+		flex-direction: 0;
+
+		position: absolute;
+		right: 15px;
+		top: 20px;
+
+		width: 25px;
+		height: 25px;
+
+		display: grid;
+		place-items: center;
+		background-color: rgb(255, 157, 151, 0.4);
+		border-radius: 50%;
+		transition:
+			background-color 150ms ease-in-out,
+			scale 50ms ease-in-out;
+
+		@include mixins.hover {
+			background-color: rgb(255, 157, 151, 0.6);
+		}
+
+		&:focus-visible {
+			background-color: rgb(255, 157, 151, 0.6);
+			outline-offset: 2px;
+		}
+
+		&:active {
+			scale: 0.99;
+		}
+	}
+
+	&__title {
+		font-weight: 800;
+		font-size: 26px;
+		line-height: 132%;
+		letter-spacing: -0.01em;
+		color: #3d1701;
+	}
+
+	&__text {
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 157%;
+		letter-spacing: -0.01em;
+		color: #8c6f5e;
+	}
+}
+
+.contact-card {
+	&__inner {
+	}
+
+	&__info {
+		margin-bottom: 30px;
+	}
+
+	&__title {
+		margin-bottom: 10px;
+	}
+
+	&__form {
+		.form__row {
+			grid-template-columns: 1fr;
+		}
+	}
+}
+
+.thanks-card {
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+	}
+
+	&__text {
+		text-align: center;
+	}
+}

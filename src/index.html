@@ -1281,7 +1281,11 @@
 								</div>
 							</div>
 							<div class="contacts__right">
-								<form action="#" method="post" class="form">
+								<form
+									action="#"
+									method="post"
+									class="form"
+									data-form="contacts-form">
 									<h3 class="form__title">Оставьте заявку:</h3>
 									<div class="form__row">
 										<div class="field">
@@ -1376,7 +1380,11 @@
 									</div>
 
 									<label class="custom-checkbox-label">
-										<input checked type="checkbox" class="custom-checkbox" />
+										<input
+											required
+											checked
+											type="checkbox"
+											class="custom-checkbox" />
 										<span
 											>Нажимая кнопку &laquo;Отправить заявку&raquo;,
 											вы&nbsp;соглашаетесь с&nbsp;политикой обработки
@@ -1385,9 +1393,7 @@
 									</label>
 
 									<div class="form__actions">
-										<button class="btn form__btn loading">
-											Отправить заявку
-										</button>
+										<button class="btn form__btn">Отправить заявку</button>
 
 										<p class="form__text">
 											Нажимая на&nbsp;кнопку &laquo;Отправить заявку&raquo;,
@@ -1404,6 +1410,123 @@
 				<!--  -->
 			</main>
 			@include('./html/footer.html')
+
+			<div class="modal" data-modal="callback-modal">
+				<div class="contact-card modal-card">
+					<button class="modal-card__btn" data-destroyer>
+						<svg width="10" height="10">
+							<use href="./images/sprite/sprite.svg#close"></use>
+						</svg>
+					</button>
+					<div class="contact-card__inner">
+						<div class="contact-card__info">
+							<div class="modal-card__title contact-card__title">
+								Перезвоним
+							</div>
+							<div class="modal-card__text">
+								Отправьте свои данные и&nbsp;мы&nbsp;свяжемся с&nbsp;Вами для
+								уточнения деталей
+							</div>
+						</div>
+
+						<form
+							action="#"
+							method="post"
+							class="form contact-card__form"
+							data-form="callback-form">
+							<div class="form__row">
+								<div class="field">
+									<label for="user-name" class="field__label">Ваше имя</label>
+									<div class="field__input-wrapper">
+										<svg width="20" height="20" class="field__icon">
+											<use href="./images/sprite/sprite.svg#user"></use>
+										</svg>
+
+										<input
+											autocomplete="off"
+											class="field__input"
+											type="text"
+											name="user-name"
+											id="user-name"
+											placeholder="Ваше имя" />
+									</div>
+								</div>
+
+								<div class="field required">
+									<label for="user-phone" class="field__label">Телефон</label>
+									<div class="field__input-wrapper">
+										<svg width="20" height="20" class="field__icon">
+											<use href="./images/sprite/sprite.svg#call_green"></use>
+										</svg>
+
+										<input
+											autocomplete="off"
+											required
+											class="field__input"
+											type="text"
+											name="user-phone"
+											id="user-phone-2"
+											placeholder="+7" />
+									</div>
+								</div>
+							</div>
+
+							<label class="custom-checkbox-label">
+								<input
+									required
+									checked
+									type="checkbox"
+									class="custom-checkbox" />
+								<span
+									>Нажимая кнопку &laquo;Отправить заявку&raquo;,
+									вы&nbsp;соглашаетесь с&nbsp;политикой обработки персональных
+									данных</span
+								>
+							</label>
+
+							<div class="form__actions">
+								<button class="btn form__btn">Отправить заявку</button>
+
+								<p class="form__text">
+									Нажимая на&nbsp;кнопку &laquo;Отправить заявку&raquo;,
+									вы&nbsp;даете согласие на&nbsp;обработку своих персональных
+									данных
+								</p>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal" data-modal="thanks-modal">
+				<div class="thanks-card modal-card">
+					<button class="modal-card__btn" data-destroyer>
+						<svg width="10" height="10">
+							<use href="./images/sprite/sprite.svg#close"></use>
+						</svg>
+					</button>
+					<div class="thanks-card__inner">
+						<svg
+							width="60"
+							height="60"
+							viewBox="0 0 60 60"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								opacity="0.4"
+								d="M30 55C43.8071 55 55 43.8071 55 30C55 16.1929 43.8071 5 30 5C16.1929 5 5 16.1929 5 30C5 43.8071 16.1929 55 30 55Z"
+								fill="#44B5B1" />
+							<path
+								d="M26.4499 38.95C25.9499 38.95 25.4749 38.75 25.1249 38.4L18.0499 31.325C17.3249 30.6 17.3249 29.4 18.0499 28.675C18.7749 27.95 19.9749 27.95 20.6999 28.675L26.4499 34.425L39.2999 21.575C40.0249 20.85 41.2249 20.85 41.9499 21.575C42.6749 22.3 42.6749 23.5 41.9499 24.225L27.7749 38.4C27.4249 38.75 26.9499 38.95 26.4499 38.95Z"
+								fill="#44B5B1" />
+						</svg>
+						<div class="thanks-card__title modal-card__title">Спасибо</div>
+						<div class="thanks-card__text modal-card__text">
+							Мы&nbsp;получили вашу заявку и&nbsp;скоро с&nbsp;Вами свяжемся
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

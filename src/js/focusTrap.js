@@ -1,5 +1,5 @@
 export const focusTrap = (parent, withArrows = false) => {
-	if (!parent) return;
+	if (!parent) return () => {};
 
 	const selectors =
 		"a, button, input, textarea, select, [tabindex]:not([tabindex='-1'])";
@@ -9,55 +9,58 @@ export const focusTrap = (parent, withArrows = false) => {
 			el =>
 				!el.disabled &&
 				el.offsetParent !== null &&
-				getComputedStyle(el).visibility !== "hidden"
+				getComputedStyle(el).visibility !== "hidden" &&
+				getComputedStyle(el).display !== "none"
 		);
 	};
 
 	const focusableElements = getFocusableElements();
-	if (focusableElements.length === 0) return;
+	if (focusableElements.length === 0) return () => {};
 
-	let currentIndex = 0;
-	focusableElements[currentIndex].focus();
+	let currentIndex = focusableElements.findIndex(
+		el => el === document.activeElement
+	);
+	if (currentIndex === -1) currentIndex = 0;
 
-	parent.addEventListener("keydown", e => {
-		if (!withArrows) {
-			if (e.key === "Tab") {
-				if (e.shiftKey) {
-					// Shift + Tab
-					if (document.activeElement === focusableElements[0]) {
-						e.preventDefault();
-						focusableElements[focusableElements.length - 1].focus();
-					}
-				} else {
-					// Tab
-					if (
-						document.activeElement ===
-						focusableElements[focusableElements.length - 1]
-					) {
-						e.preventDefault();
-						focusableElements[0].focus();
-					}
-				}
-			}
-		} else {
-			// Если withArrows включен, блокируем Tab
-			if (e.key === "Tab") {
-				e.preventDefault();
+	const focusCurrentElement = () => {
+		focusableElements[currentIndex].focus();
+	};
+
+	focusCurrentElement();
+
+	const handleKeyDown = e => {
+		if (e.key === "Tab") {
+			e.preventDefault();
+			currentIndex += e.shiftKey ? -1 : 1;
+
+			if (currentIndex >= focusableElements.length) {
+				currentIndex = 0;
+			} else if (currentIndex < 0) {
+				currentIndex = focusableElements.length - 1;
 			}
 
-			if (e.key === "ArrowDown") {
-				e.preventDefault();
-				if (currentIndex < focusableElements.length - 1) {
-					currentIndex++;
-					focusableElements[currentIndex].focus();
-				}
-			} else if (e.key === "ArrowUp") {
-				e.preventDefault();
-				if (currentIndex > 0) {
-					currentIndex--;
-					focusableElements[currentIndex].focus();
-				}
-			}
+			focusCurrentElement();
 		}
-	});
+
+		if (withArrows && (e.key === "ArrowDown" || e.key === "ArrowRight")) {
+			e.preventDefault();
+			currentIndex = (currentIndex + 1) % focusableElements.length;
+			focusCurrentElement();
+		}
+
+		if (withArrows && (e.key === "ArrowUp" || e.key === "ArrowLeft")) {
+			e.preventDefault();
+			currentIndex =
+				(currentIndex - 1 + focusableElements.length) %
+				focusableElements.length;
+			focusCurrentElement();
+		}
+	};
+
+	parent.addEventListener("keydown", handleKeyDown);
+
+	// Return cleanup function
+	return () => {
+		parent.removeEventListener("keydown", handleKeyDown);
+	};
 };

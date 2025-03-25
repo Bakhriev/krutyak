@@ -3,7 +3,6 @@
 
 .contacts {
 	position: relative;
-
 	padding-top: 70px;
 
 	&::before {
@@ -16,6 +15,7 @@
 		aspect-ratio: 1;
 		rotate: 210deg;
 		left: 60%;
+		pointer-events: none;
 
 		background-image: url("../images/icons/gradient.svg");
 		background-position: center center;
